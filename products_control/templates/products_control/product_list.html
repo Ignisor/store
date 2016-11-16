@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список продуктов</title>
+</head>
+<body>
+<p><a href="/product_control/add_product/">Добавить новый продукт</a></p>
+<h2>Продукты:</h2>
+<ul>
+{% for product in object_list %}
+    {% if brand_name %}
+        {% if product.brand.slug == brand_name %}
+            <li><a href="/product/{{ product.barcode }}/">{{ product.name }}</a></li>
+        {% endif %}
+    {% else %}
+        <li><a href="/product/{{ product.barcode }}/">{{ product.name }}</a></li>
+    {% endif %}
+{% empty %}
+    <li>No products yet.</li>
+{% endfor %}
+</ul>
+</body>
+</html>

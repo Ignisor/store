@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Категории</title>
+</head>
+<body>
+<h><a href="/product_control/add_category/">Добавить новую категорию</a></h>
+<h2>Категории:</h2>
+<ul>
+{% for category in object_list %}
+    <li><a href = '/products/category/{{ category.slug }}/'>{{ category.name }}</a> (<a href="/category/{{ category.slug }}/update/">редактировать</a>/<a href="/category/{{ category.slug }}/delete/">удалить</a>)</li>
+{% empty %}
+    <li>No categories yet.</li>
+{% endfor %}
+</ul>
+</body>
+</html>

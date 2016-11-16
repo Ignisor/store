@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<form action="{% url 'login' %}" method="post" accept-charset="utf-8">
+    {% csrf_token %}
+    {% for field in form %}
+        <p><label>{{ field.label }}</label>
+        {% if field.errors %}
+            {{ field.errors }}
+        {% endif %}
+        {{ field }}</p>
+    {% endfor %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    <input class="button small" type="submit" value="Submit"/>
+</form>
+</body>
+</html>

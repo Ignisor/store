@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.name }}</title>
+</head>
+<body>
+<h1>{{ product.name }}</h1>
+<h3><a href='/products/brand/{{ product.brand.slug }}/'>{{ product.brand.name }}</a></h3>
+<h3><a href='/products/category/{{ product.category.slug }}/'>{{ product.category.name }}</a></h3>
+<br>
+<p><b>Количество: {{ product.amount.num }}</b></p>
+<p>Штрихкод: {{ product.barcode }}</p>
+<p>Стоимость: {{ product.price }}</p>
+<img src="{{ product.image }}", alt="Нет изображения">
+<br>
+<p><a href="update/">Изменить</a></p>
+<p><a href="delete/">Удалить</a></p>
+</body>
+</html>

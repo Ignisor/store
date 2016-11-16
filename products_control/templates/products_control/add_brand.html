@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление бренда</title>
+</head>
+<body>
+<h2>Новый бренд:</h2>
+{% if user.is_authenticated %}
+<form action="" method="post">
+{% csrf_token %}
+    <table>
+        <tr>
+            <td>Название :</td>
+            <td>{{ form.name }}</td>
+        </tr>
+        <tr>
+            <td>Короткое название :</td>
+            <td>{{ form.slug }}</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Добавить" /></td>
+        </tr>
+    </table>
+</form>
+{% else %}
+    Необходима авторизация
+{% endif %}
+</body>
+</html>
