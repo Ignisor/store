@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Приход</title>
+</head>
+<body>
+<h2>Приход:</h2>
+<form action="" method="post">
+{% csrf_token %}
+    <table>
+        <tr>
+            <td>Штрихкод:</td>
+            <td>{{ form.barcode }}</td>
+        </tr>
+        <tr>
+            <td>Количество:</td>
+            <td>{{ form.amount }}</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Ок" /></td>
+        </tr>
+    </table>
+</form>
+</form>
+</body>
+</html>

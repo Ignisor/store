@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменить категорию</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+<form action="" method="post">
+{% csrf_token %}
+    <table>
+        <tr>
+            <td>Название :</td>
+            <td>{{ form.name }}</td>
+        </tr>
+        <tr>
+            <td>Короткое название :</td>
+            <td>{{ form.slug }}</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Обновить" /></td>
+        </tr>
+    </table>
+</form>
+{% else %}
+    Необходима авторизация
+{% endif %}
+</body>
+</html>

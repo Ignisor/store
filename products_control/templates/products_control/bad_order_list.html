@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Несошедшиеся заказы</title>
+</head>
+<body>
+<table border="1">
+   <caption>Заказы:</caption>
+    <tr>
+       <th>Поставщик</th>
+       <th>Продукт</th>
+       <th>Заказанное кол-во</th>
+       <th>Доставленное кол-во</th>
+       <th>Дата</th>
+    </tr>
+{% for order in object_list %}
+    <tr>
+        <td>{{ order.provider.name }}</td>
+        <td><a href="/product/{{ order.product.barcode }}/">{{ order.product.name }}</a></td>
+        <td>{{ order.ordered_amount }}</td>
+        <td>{{ order.delivered_amount }}</td>
+        <td>{{ order.deliver_date }}</td>
+    </tr>
+{% empty %}
+    Всё сходится!
+{% endfor %}
+</table>
+</body>
+</html>
