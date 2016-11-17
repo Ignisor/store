@@ -2,9 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Список заказов</title>
 </head>
 <body>
-$END$
+<table border="1">
+   <caption>Заказы:</caption>
+   <tr>
+       <th>Подтверждён</th>
+       <th>Поставщик</th>
+       <th>Продукт</th>
+       <th>Заказанное кол-во</th>
+       <th>Доставленное кол-во</th>
+       <th>Дата</th>
+   </tr>
+{% for order in object_list %}
+    {% if order.accepted %}
+        {% if order.ordered_amount != order.delivered_amount %}
+            <tr bgcolor="red">
+        {% else %}
+            <tr>
+        {% endif %}
+    {% else %}
+        <tr>
+    {% endif %}
+        <td>
+            {% if order.accepted %} Да {% else %}
+            <form action="/confirm_order/{{ order.id }}">
+                <input type="submit" value="Подтвердить" />
+            </form>
+            {% endif %}
+        </td>
+        <td>{{ order.provider.name }}</td>
+        <td><a href="/product/{{ order.product.barcode }}/">{{ order.product.name }}</a></td>
+        <td>{{ order.ordered_amount }}</td>
+        <td>{{ order.delivered_amount }}</td>
+        <td>{{ order.deliver_date }}</td>
+    </tr>
+{% empty %}
+    Заказов нет.
+{% endfor %}
+</table>
 </body>
 </html>

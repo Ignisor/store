@@ -1,10 +1,10 @@
-from django.shortcuts import render, get_object_or_404
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.views.generic.list import ListView
 from annoying.functions import get_object_or_None
 
-from .forms import ProductForm, BrandForm, CategoryForm
-from .models import Brand, Product, Category
+from .forms import ProductForm, BrandForm, CategoryForm, IncomeForm, OutcomeForm, OrderForm
+from .models import Brand, Product, Category, Log, Provider, Order
 
 
 def index(request):
@@ -15,19 +15,26 @@ def index(request):
 class ProductCreateView(CreateView):
     template_name = 'products_control/add_product.html'
     form_class = ProductForm
-    success_url = '/product_control/add_product/'
+    success_url = '/products/'
 
 
 class BrandCreateView(CreateView):
     template_name = 'products_control/add_brand.html'
     form_class = BrandForm
-    success_url = '/product_control/add_brand/'
+    success_url = '/brands/'
 
 
 class CategoryCreateView(CreateView):
     template_name = 'products_control/add_category.html'
     form_class = CategoryForm
-    success_url = '/product_control/add_category/'
+    success_url = '/categories/'
+
+
+class ProviderCreateView(CreateView):
+    template_name = 'products_control/add_provider.html'
+    model = Provider
+    fields = '__all__'
+    success_url = '/providers/'
 
 
 # Views to get models
@@ -51,6 +58,39 @@ class BrandsListView(ListView):
 
 class CategoriesListView(ListView):
     model = Category
+
+
+class LogListView(ListView):
+    model = Log
+
+
+class ProviderListView(ListView):
+    model = Provider
+
+
+class OrderListView(ListView):
+    model = Order
+
+    def get_queryset(self):
+        if self.kwargs.get('provider_name') is not None:
+            provider = get_object_or_None(Provider, slug=self.kwargs.get('provider_name'))
+            return Order.objects.filter(provider=provider)
+        else:
+            return None
+
+
+class BadOrderListView(ListView):
+    model = Order
+
+    template_name = 'products_control/bad_order_list.html'
+
+    def get_queryset(self):
+        objects = Order.objects.filter(accepted=True)
+        for obj in objects:
+            if obj.delivered_amount == obj.ordered_amount:
+                objects = objects.exclude(id=obj.id)
+
+        return objects
 
 
 def product_view(request, product_barcode):
@@ -89,6 +129,25 @@ class BrandUpdateView(UpdateView):
     success_url = '/brands/'
 
 
+class ProviderUpdateView(UpdateView):
+    model = Provider
+    fields = '__all__'
+    template_name_suffix = '_update'
+    success_url = '/providers/'
+
+
+class OrderConfirmView(UpdateView):
+    model = Order
+    fields = ['delivered_amount', 'deliver_date']
+    template_name_suffix = '_confirm'
+    success_url = '/providers/'
+
+    def form_valid(self, form):
+        self.object.accepted = True
+        self.object.save()
+        return super(OrderConfirmView, self).form_valid(form)
+
+
 # Views to delete models
 class ProductDeleteView(DeleteView):
     model = Product
@@ -108,3 +167,39 @@ class CategoryDeleteView(DeleteView):
     template_name_suffix = '_delete'
 
 
+class ProviderDeleteView(DeleteView):
+    model = Provider
+    success_url = '/providers/'
+    template_name_suffix = '_delete'
+
+
+# Views for income and outcome
+class IncomeFormView(FormView):
+    template_name = 'products_control/income.html'
+    form_class = IncomeForm
+    success_url = '/products/'
+
+    def form_valid(self, form):
+        form.save()
+        return super(IncomeFormView, self).form_valid(form)
+
+
+class OutcomeFormView(FormView):
+    template_name = 'products_control/outcome.html'
+    form_class = OutcomeForm
+    success_url = '/products/'
+
+    def form_valid(self, form):
+        form.save()
+        return super(OutcomeFormView, self).form_valid(form)
+
+
+# Order view
+class OrderFormView(FormView):
+    template_name = 'products_control/new_order.html'
+    form_class = OrderForm
+    success_url = '/new_order/'
+
+    def form_valid(self, form):
+        form.save()
+        return super(OrderFormView, self).form_valid(form)

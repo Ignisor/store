@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Изменить категорию</title>
+    <title>Изменить поставщика</title>
 </head>
 <body>
-{% if user.is_authenticated %}
 <form action="" method="post">
 {% csrf_token %}
     <table>
@@ -22,8 +21,5 @@
         </tr>
     </table>
 </form>
-{% else %}
-    Необходима авторизация
-{% endif %}
 </body>
 </html>

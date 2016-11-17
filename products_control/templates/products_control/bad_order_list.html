@@ -6,7 +6,7 @@
 </head>
 <body>
 <table border="1">
-   <caption>Заказы:</caption>
+   <caption>Несошедшиеся заказы:</caption>
     <tr>
        <th>Поставщик</th>
        <th>Продукт</th>
@@ -16,7 +16,7 @@
     </tr>
 {% for order in object_list %}
     <tr>
-        <td>{{ order.provider.name }}</td>
+        <td><a href="/providers/{{ order.provider.slug }}/">{{ order.provider.name }}</a></td>
         <td><a href="/product/{{ order.product.barcode }}/">{{ order.product.name }}</a></td>
         <td>{{ order.ordered_amount }}</td>
         <td>{{ order.delivered_amount }}</td>

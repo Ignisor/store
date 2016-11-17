@@ -5,7 +5,24 @@
     <title>Логи</title>
 </head>
 <body>
-<h2>Логи прихода и ухода:</h2>
-
+<table border="1">
+   <caption>Логи прихода и ухода:</caption>
+   <tr>
+    <th>Продукт</th>
+    <th>Тип</th>
+    <th>Кол-во</th>
+    <th>Дата</th>
+   </tr>
+{% for log in object_list %}
+    <tr>
+        <td><a href="/product/{{ log.product.barcode }}/">{{ log.product.name }}</a></td>
+        <td>{{ log.type }}</td>
+        <td>{{ log.d_amount }}</td>
+        <td>{{ log.time }}</td>
+    </tr>
+{% empty %}
+    Логов нет.
+{% endfor %}
+</table>
 </body>
 </html>

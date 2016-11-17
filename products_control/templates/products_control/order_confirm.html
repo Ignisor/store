@@ -2,9 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Подтверждение заказа</title>
 </head>
 <body>
-$END$
+<form action="" method="post">
+{% csrf_token %}
+    <table>
+        <tr>
+            <td>Поставщик :</td>
+            <td>{{ object.provider.name }}</td>
+        </tr>
+        <tr>
+            <td>Продукт :</td>
+            <td><a href="/product/{{ form.product.barcode }}/">{{ object.product.name }}</a></td>
+        </tr>
+        <tr>
+            <td>Заказанное кол-во :</td>
+            <td>{{ object.ordered_amount }}</td>
+        </tr>
+        <tr>
+            <td>Доставленное кол-во :</td>
+            <td>{{ form.delivered_amount }}</td>
+        </tr>
+        <tr>
+            <td>Дата доставки :</td>
+            <td>{{ form.deliver_date }}</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Подтвердить" /></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>

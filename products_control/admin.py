@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from .models import Product, Amount, Log, Brand, Category
+from .models import Product, Amount, Log, Brand, Category, Provider, Order
 
-admin.site.register([Amount, Log, Brand, Category])
+admin.site.register([Amount, Brand, Category, Provider, Order])
 
 class LogInline(admin.TabularInline):
     model = Log
@@ -18,3 +18,9 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ['name', 'barcode', 'price']
 
 admin.site.register(Product, ProductAdmin)
+
+
+class LogAdmin(admin.ModelAdmin):
+    list_display = ['product', 'd_amount', 'time']
+
+admin.site.register(Log, LogAdmin)

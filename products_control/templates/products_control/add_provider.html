@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Создать поставщика</title>
 </head>
 <body>
-$END$
+<h2>Новый поставщик:</h2>
+<form action="" method="post">
+{% csrf_token %}
+    <table>
+        <tr>
+            <td>Имя: </td>
+            <td>{{ form.name }}</td>
+        </tr>
+        <tr>
+            <td>Короткое имя: </td>
+            <td>{{ form.slug }}</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Добавить" /></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>

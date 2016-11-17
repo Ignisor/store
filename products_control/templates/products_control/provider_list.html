@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Список поставщиков</title>
 </head>
 <body>
-$END$
+<h><a href="/product_control/add_provider/">Добавить нового поставщика</a></h>
+<h2>Поставщики:</h2>
+<ul>
+{% for provider in object_list %}
+    <li><a href = '/providers/{{ provider.slug }}/'>{{ provider.name }}</a> (<a href="/providers/{{ provider.slug }}/update/">редактировать</a>/<a href="/providers/{{ provider.slug }}/delete/">удалить</a>)</li>
+{% empty %}
+    <li>Поставщиков нет.</li>
+{% endfor %}
+</ul>
 </body>
 </html>
