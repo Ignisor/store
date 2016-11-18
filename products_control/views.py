@@ -145,7 +145,13 @@ class OrderConfirmView(UpdateView):
     def form_valid(self, form):
         self.object.accepted = True
         self.object.save()
-        return super(OrderConfirmView, self).form_valid(form)
+
+        obj = super(OrderConfirmView, self).form_valid(form)
+
+        self.object.product.amount.num += self.object.delivered_amount
+        self.object.product.amount.save()
+
+        return obj
 
 
 # Views to delete models

@@ -4,6 +4,7 @@ from .models import Product, Amount, Log, Brand, Category, Provider, Order
 
 admin.site.register([Amount, Brand, Category, Provider, Order])
 
+
 class LogInline(admin.TabularInline):
     model = Log
     readonly_fields = ('product', 'd_amount', 'time')
