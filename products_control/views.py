@@ -200,7 +200,7 @@ class OutcomeFormView(FormView):
         return super(OutcomeFormView, self).form_valid(form)
 
 
-# Order view
+# Create order view
 class OrderFormView(FormView):
     template_name = 'products_control/new_order.html'
     form_class = OrderForm
@@ -209,3 +209,12 @@ class OrderFormView(FormView):
     def form_valid(self, form):
         form.save()
         return super(OrderFormView, self).form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super(OrderFormView, self).get_context_data(**kwargs)
+        providers_dict = {}
+        for provider in Provider.objects.all():
+            providers_dict[str(provider.id)] = provider.name.encode('ascii', 'xmlcharrefreplace')
+
+        context['providers'] = providers_dict
+        return context

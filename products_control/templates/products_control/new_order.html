@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Добавить заказ</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
 <h2>Новый заказ:</h2>
-<form action="" method="post">
+<div id="status-div"></div>
+<form action="" method="post" id="post-form">
 {% csrf_token %}
-    <table>
+    <table id="table">
         <tr>
             <td>Поставщик: </td>
             <td>{{ form.provider }}</td>
@@ -20,5 +22,40 @@
         </tr>
     </table>
 </form>
+<script>
+var frm = $('#post-form');
+    frm.submit(function() {
+        var $inputs = $('#post-form :input');
+
+        var values = {};
+        $inputs.each(function() {
+            values[this.name] = $(this).val();
+        });
+
+        var providers = {{ providers|safe }}
+
+        console.log("WOW! VERY AJAX");
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+        success : function(data) {
+                console.log(providers);
+                console.log(providers[3]);
+                $("#table").prepend("<tr><td>Поставщик: </td>" +
+                    "<td>" + providers[values['provider']] + "</td>" +
+                    "<td>Штрихкод: </td>" +
+                    "<td>" +  values['product']  + "</td>" +
+                    "<td>Количество: </td>" +
+                    "<td>" +  values['ordered_amount']  + "</td></tr>");
+            },
+        error : function(data) {
+                console.log("SO ERROR");
+                $("#status-div").html("<p style='color: red'>Что-то не так<p>");
+            }
+        });
+        return false;
+    });
+</script>
 </body>
 </html>
