@@ -14,6 +14,7 @@
        <th>Заказанное кол-во</th>
        <th>Доставленное кол-во</th>
        <th>Дата</th>
+       <th>Удаление</th>
    </tr>
 {% for order in object_list %}
     {% if order.accepted %}
@@ -37,6 +38,14 @@
         <td>{{ order.ordered_amount }}</td>
         <td>{{ order.delivered_amount }}</td>
         <td>{{ order.deliver_date }}</td>
+        <td>
+            {% if not order.accepted %}
+            <form action="/order/{{ order.pk }}/delete/">
+                <input type="submit" value="Удалить" />
+            </form>
+            {% endif %}
+        </td>
+
     </tr>
 {% empty %}
     Заказов нет.

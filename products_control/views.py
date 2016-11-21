@@ -179,6 +179,12 @@ class ProviderDeleteView(DeleteView):
     template_name_suffix = '_delete'
 
 
+class OrderDeleteView(DeleteView):
+    model = Order
+    success_url = '/providers/'
+    template_name_suffix = '_delete'
+
+
 # Views for income and outcome
 class IncomeFormView(FormView):
     template_name = 'products_control/income.html'

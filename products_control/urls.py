@@ -7,7 +7,7 @@ from .views import ProductCreateView, BrandCreateView, CategoryCreateView, \
     ProductUpdateView, BrandUpdateView, CategoryUpdateView, ProductDeleteView, \
     CategoryDeleteView, BrandDeleteView, IncomeFormView, OutcomeFormView, LogListView, \
     ProviderCreateView, ProviderListView, ProviderUpdateView, ProviderDeleteView, \
-    OrderFormView, OrderListView, OrderConfirmView, BadOrderListView
+    OrderFormView, OrderListView, OrderConfirmView, BadOrderListView, OrderDeleteView
 
 urlpatterns = [
     url(r'^$', login_required(index), name='index'),
@@ -28,8 +28,9 @@ urlpatterns = [
     url(r'^brand/(?P<slug>[\w -.]+)/update/$', login_required(BrandUpdateView.as_view()), name='brand_update'),
     url(r'^category/(?P<slug>[\w -.]+)/update/$', login_required(CategoryUpdateView.as_view()), name='category_update'),
     url(r'^product/(?P<pk>\d+)/delete/$', login_required(ProductDeleteView.as_view()), name='product_delete'),
-    url(r'^brand/(?P<slug>[\w -.]+)/delete/$', login_required(BrandDeleteView.as_view()), name='brand_update'),
-    url(r'^category/(?P<slug>[\w -.]+)/delete/$', login_required(CategoryDeleteView.as_view()), name='category_update'),
+    url(r'^brand/(?P<slug>[\w -.]+)/delete/$', login_required(BrandDeleteView.as_view()), name='brand_delete'),
+    url(r'^category/(?P<slug>[\w -.]+)/delete/$', login_required(CategoryDeleteView.as_view()), name='category_delete'),
+    url(r'^order/(?P<pk>[\w -.]+)/delete/$', login_required(OrderDeleteView.as_view()), name='order_delete'),
     url(r'^providers/$', login_required(ProviderListView.as_view()), name='providers'),
     url(r'^providers/(?P<provider_name>[\w -.]+)/$', login_required(OrderListView.as_view()), name='orders'),
     url(r'^providers/(?P<slug>[\w -.]+)/update/$', login_required(ProviderUpdateView.as_view()), name='provider_update'),
