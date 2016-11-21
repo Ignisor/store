@@ -34,14 +34,11 @@ var frm = $('#post-form');
 
         var providers = {{ providers|safe }}
 
-        console.log("WOW! VERY AJAX");
         $.ajax({
             type: frm.attr('method'),
             url: frm.attr('action'),
             data: frm.serialize(),
         success : function(data) {
-                console.log(providers);
-                console.log(providers[3]);
                 $("#table").prepend("<tr><td>Поставщик: </td>" +
                     "<td>" + providers[values['provider']] + "</td>" +
                     "<td>Штрихкод: </td>" +
@@ -50,7 +47,6 @@ var frm = $('#post-form');
                     "<td>" +  values['ordered_amount']  + "</td></tr>");
             },
         error : function(data) {
-                console.log("SO ERROR");
                 $("#status-div").html("<p style='color: red'>Что-то не так<p>");
             }
         });
