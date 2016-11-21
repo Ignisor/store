@@ -5,16 +5,18 @@
     <title>Подтверждение заказа</title>
 </head>
 <body>
+<p><a href="/">На домашнюю</a></p>
+<br>
 <form action="" method="post">
 {% csrf_token %}
     <table>
         <tr>
             <td>Поставщик :</td>
-            <td>{{ object.provider.name }}</td>
+            <td><a href="/providers/{{ object.provider.slug }}/">{{ object.provider.name }}</a></td>
         </tr>
         <tr>
             <td>Продукт :</td>
-            <td><a href="/product/{{ form.product.barcode }}/">{{ object.product.name }}</a></td>
+            <td><a href="/product/{{ object.product.barcode }}/">{{ object.product.name }}</a></td>
         </tr>
         <tr>
             <td>Заказанное кол-во :</td>

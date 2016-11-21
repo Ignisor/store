@@ -5,6 +5,8 @@
     <title>Список заказов</title>
 </head>
 <body>
+<p><a href="/">На домашнюю</a></p>
+<br>
 <table border="1">
    <caption>Заказы:</caption>
    <tr>
@@ -33,7 +35,7 @@
             </form>
             {% endif %}
         </td>
-        <td>{{ order.provider.name }}</td>
+        <td><a href="/providers/{{ object.provider.slug }}/">{{ order.provider.name }}</a></td>
         <td><a href="/product/{{ order.product.barcode }}/">{{ order.product.name }}</a></td>
         <td>{{ order.ordered_amount }}</td>
         <td>{{ order.delivered_amount }}</td>

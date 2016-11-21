@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.views.generic.list import ListView
 from annoying.functions import get_object_or_None
@@ -11,7 +11,7 @@ def index(request):
     return render(request, 'index.html')
 
 
-# Views to create models
+# Views for creating models
 class ProductCreateView(CreateView):
     template_name = 'products_control/add_product.html'
     form_class = ProductForm
@@ -37,7 +37,7 @@ class ProviderCreateView(CreateView):
     success_url = '/providers/'
 
 
-# Views to get models
+# Views for getting models
 class ProductsListView(ListView):
     model = Product
 
@@ -109,11 +109,6 @@ class ProductUpdateView(UpdateView):
     template_name_suffix = '_update'
     success_url = '/products/'
 
-    # def post(self, request, *args, **kwargs):
-    #     response = super(ProductUpdateView, self).post(self, request, *args, **kwargs)
-    #     self.success_url = '/product/{pk}/'.format(pk=self.object.barcode)
-    #     return response
-
 
 class CategoryUpdateView(UpdateView):
     model = Category
@@ -137,12 +132,16 @@ class ProviderUpdateView(UpdateView):
 
 
 class OrderConfirmView(UpdateView):
+    """
+    View for confirming orders
+    """
     model = Order
     fields = ['delivered_amount', 'deliver_date']
     template_name_suffix = '_confirm'
     success_url = '/providers/'
 
     def form_valid(self, form):
+        # make order accepted, and change amount of items
         self.object.accepted = True
         self.object.save()
 
@@ -208,6 +207,9 @@ class OutcomeFormView(FormView):
 
 # Create order view
 class OrderFormView(FormView):
+    """
+    View for creating orders
+    """
     template_name = 'products_control/new_order.html'
     form_class = OrderForm
     success_url = '/new_order/'
@@ -217,10 +219,13 @@ class OrderFormView(FormView):
         return super(OrderFormView, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
+        # send providers names as context for displaying them on page
         context = super(OrderFormView, self).get_context_data(**kwargs)
+
         providers_dict = {}
         for provider in Provider.objects.all():
             providers_dict[str(provider.id)] = provider.name.encode('ascii', 'xmlcharrefreplace')
 
         context['providers'] = providers_dict
+
         return context

@@ -1,6 +1,4 @@
 from __future__ import unicode_literals
-from django.core.files.storage import FileSystemStorage
-from django.conf import settings
 from django.db import models
 
 
