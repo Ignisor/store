@@ -3,6 +3,33 @@
   <component name="ChangeListManager">
     <list default="true" id="856ee964-cb60-4f0d-9c7a-f667cfb8fc24" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/index.html" afterPath="$PROJECT_DIR$/products_control/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/login.html" afterPath="$PROJECT_DIR$/products_control/templates/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/add_brand.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/add_brand.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/add_category.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/add_category.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/add_product.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/add_product.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/add_provider.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/add_provider.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/bad_order_list.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/bad_order_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/brand_delete.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/brand_delete.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/brand_list.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/brand_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/brand_update.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/brand_update.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/category_delete.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/category_delete.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/category_list.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/category_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/category_update.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/category_update.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/income.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/income.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/log_list.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/log_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/new_order.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/new_order.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/order_confirm.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/order_confirm.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/order_delete.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/order_delete.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/order_list.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/order_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/outcome.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/outcome.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/product.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/product.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/product_delete.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/product_delete.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/product_list.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/product_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/product_update.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/product_update.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/provider_delete.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/provider_delete.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/provider_list.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/provider_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products_control/templates/products_control/provider_update.html" afterPath="$PROJECT_DIR$/products_control/templates/products_control/provider_update.html" />
     </list>
     <ignored path="products.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -21,7 +48,48 @@
     <favorites_list name="products" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/products/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="870">
+              <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/products_control/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add_brand.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/products_control/templates/products_control/add_brand.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/products_control/templates/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -45,12 +113,10 @@
         <option value="$PROJECT_DIR$/products/files/static/css/shop.css" />
         <option value="$PROJECT_DIR$/products/urls.py" />
         <option value="$PROJECT_DIR$/products/files/static/static/shop.css" />
-        <option value="$PROJECT_DIR$/products_control/templates/login.html" />
         <option value="$PROJECT_DIR$/products_control/models.py" />
         <option value="$PROJECT_DIR$/products/files/static/static/navbar.css" />
         <option value="$PROJECT_DIR$/products/files/static/navbar.css" />
         <option value="$PROJECT_DIR$/products_control/urls.py" />
-        <option value="$PROJECT_DIR$/products_control/templates/index.html" />
         <option value="$PROJECT_DIR$/products_control/templates/header.html" />
         <option value="$PROJECT_DIR$/products_control/templates/products_control/add_brand.html" />
         <option value="$PROJECT_DIR$/products_control/templates/products_control/add_category.html" />
@@ -82,12 +148,13 @@
         <option value="$PROJECT_DIR$/products_control/templates/products_control/provider_update.html" />
         <option value="$PROJECT_DIR$/products_control/templates/products_control/bad_order_list.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/products_control/templates/login.html" />
+        <option value="$PROJECT_DIR$/products_control/templates/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="width" value="1368" />
+    <option name="width" value="1366" />
     <option name="height" value="743" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -115,7 +182,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -131,6 +197,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="products" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="products" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="products" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="products_control" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="products" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="products" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="products_control" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="products" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="products" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="products_control" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="products_control" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -216,6 +336,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -385,26 +506,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1368" height="743" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="0" width="1366" height="743" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24720775" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24683072" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32423756" sideWeight="0.5026061" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31993568" sideWeight="0.4973939" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31993568" sideWeight="0.4973939" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -443,35 +564,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="57" column="68" selection-start-line="57" selection-start-column="68" selection-end-line="57" selection-end-column="68" />
-          <folding>
-            <element signature="e#421#457#0" expanded="false" />
-            <element signature="e#529#640#0" expanded="false" />
-            <element signature="e#682#787#0" expanded="false" />
-            <element signature="e#832#947#0" expanded="false" />
-            <element signature="e#992#1120#0" expanded="false" />
-            <element signature="e#1188#1709#0" expanded="false" />
-            <element signature="e#1748#1761#0" expanded="false" />
-            <element signature="e#1804#1820#0" expanded="false" />
-            <element signature="e#1856#1867#0" expanded="false" />
-            <element signature="e#1908#1924#0" expanded="false" />
-            <element signature="e#1962#2249#0" expanded="false" />
-            <element signature="e#2290#2610#0" expanded="false" />
-            <element signature="e#2661#2839#0" expanded="false" />
-            <element signature="e#2908#3014#0" expanded="false" />
-            <element signature="e#3059#3168#0" expanded="false" />
-            <element signature="e#3210#3312#0" expanded="false" />
-            <element signature="e#3357#3465#0" expanded="false" />
-            <element signature="e#3508#4041#0" expanded="false" />
-            <element signature="e#3730#4038#0" expanded="false" />
-            <element signature="e#4107#4190#0" expanded="false" />
-            <element signature="e#4232#4311#0" expanded="false" />
-            <element signature="e#4356#4442#0" expanded="false" />
-            <element signature="e#4487#4572#0" expanded="false" />
-            <element signature="e#4614#4696#0" expanded="false" />
-            <element signature="e#4766#4984#0" expanded="false" />
-            <element signature="e#5024#5248#0" expanded="false" />
-            <element signature="e#5303#5999#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -521,13 +613,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/products_control/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -584,7 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
           <caret line="518" column="4" selection-start-line="518" selection-start-column="4" selection-end-line="518" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -592,15 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1219">
           <caret line="463" column="6" selection-start-line="463" selection-start-column="6" selection-end-line="463" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/products_control/templates/products_control/add_brand.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -684,21 +759,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/products/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/products_control/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="e#133#441#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -706,7 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="54" column="1" selection-start-line="54" selection-start-column="1" selection-end-line="54" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -714,12 +777,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
           <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#form#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -744,8 +802,8 @@
         <state relative-caret-position="430">
           <caret line="73" column="16" selection-start-line="28" selection-start-column="8" selection-end-line="73" selection-end-column="16" />
           <folding>
-            <element signature="n#style#0;n#button#0;n#form#0;n#td#0;n#tr#3;n#table#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#form#0;n#td#6;n#tr#3;n#table#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#form#0;n#td#0;n#tr#3;n#table#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#form#0;n#td#6;n#tr#3;n#table#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -754,34 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="140" column="31" selection-start-line="140" selection-start-column="31" selection-end-line="140" selection-end-column="31" />
-          <folding>
-            <element signature="e#421#457#0" expanded="false" />
-            <element signature="e#529#640#0" expanded="false" />
-            <element signature="e#682#787#0" expanded="false" />
-            <element signature="e#832#947#0" expanded="false" />
-            <element signature="e#992#1120#0" expanded="false" />
-            <element signature="e#1188#1709#0" expanded="false" />
-            <element signature="e#1748#1761#0" expanded="false" />
-            <element signature="e#1804#1820#0" expanded="false" />
-            <element signature="e#1856#1867#0" expanded="false" />
-            <element signature="e#1908#1924#0" expanded="false" />
-            <element signature="e#1962#2249#0" expanded="false" />
-            <element signature="e#2290#2610#0" expanded="false" />
-            <element signature="e#2661#2839#0" expanded="false" />
-            <element signature="e#2908#3014#0" expanded="false" />
-            <element signature="e#3059#3168#0" expanded="false" />
-            <element signature="e#3210#3312#0" expanded="false" />
-            <element signature="e#3357#3465#0" expanded="false" />
-            <element signature="e#3730#4038#0" expanded="false" />
-            <element signature="e#4107#4190#0" expanded="false" />
-            <element signature="e#4232#4311#0" expanded="false" />
-            <element signature="e#4356#4442#0" expanded="false" />
-            <element signature="e#4487#4572#0" expanded="false" />
-            <element signature="e#4614#4696#0" expanded="false" />
-            <element signature="e#4766#4984#0" expanded="false" />
-            <element signature="e#5024#5248#0" expanded="false" />
-            <element signature="e#5303#5999#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -789,7 +819,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -813,14 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-165">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/products_control/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -877,6 +898,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products_control/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products_control/templates/products_control/add_brand.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products_control/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
           <folding />
         </state>
       </provider>
