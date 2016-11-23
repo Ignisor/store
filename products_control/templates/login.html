@@ -16,12 +16,13 @@
 <body>
 <form action="{% url 'login' %}" method="post" accept-charset="utf-8">
     {% csrf_token %}
+    {% load bootstrap %}
     {% for field in form %}
         <p><label>{{ field.label }}</label>
         {% if field.errors %}
             {{ field.errors }}
         {% endif %}
-        {{ field }}</p>
+        {{ field|bootstrap }}</p>
     {% endfor %}
     <input type="hidden" name="next" value="{{ next }}" />
     <input class="button small" type="submit" value="Submit"/>

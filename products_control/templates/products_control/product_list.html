@@ -27,7 +27,8 @@
 
     <div class="content">
         <p><a href="/product_control/add_product/">Добавить новый продукт</a></p>
-
+        <label class="control-label" for="search">Поиск:</label>
+        <input class="form-control" id="id_search" maxlength="256" name="search" type="text" placeholder="Имя или штрихкод">
         <table class="table table-bordered">
             <caption><h2>Продукты:</h2></caption>
             <tr>
@@ -38,8 +39,8 @@
             </tr>
             {% for product in object_list %}
                 <tr>
-                    <td><a href="/product/{{ product.barcode }}/">{{ product.name }}</a></td>
-                    <td>{{ product.barcode }}</td>
+                    <td class="product_name"><a href="/product/{{ product.barcode }}/">{{ product.name }}</a></td>
+                    <td class="product_id">{{ product.barcode }}</td>
                     <td>{{ product.price }}</td>
                     <td>{{ product.amount.num }}</td>
                 </tr>
@@ -53,5 +54,27 @@
             {% endfor %}
         </table>
     </div>
+
+    <script>
+        $("#id_search").on("keyup", function() {
+            value = $(this).val()
+            $("table tr").each(function(index) {
+                if (index != 0) {
+
+                    $row = $(this);
+
+                    var name = $row.find("td.product_name").text();
+                    var id = $row.find("td.product_id").text();
+
+                    if (id.indexOf(value) >= 0 || name.indexOf(value) >= 0) {
+                        $(this).show();
+                    }
+                    else {
+                        $(this).hide();
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
