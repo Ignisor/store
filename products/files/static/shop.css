@@ -1,0 +1,55 @@
+body {
+    background-color: #e0f2f1;
+}
+
+a.homelink {
+    text-decoration:none
+}
+
+.head {
+    background-color: #00695c;
+    color: #e0f2f1;
+    margin-top: 0;
+    padding: 20px 20px 20px 15px;
+}
+
+.content {
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #004d40;
+}
+
+a {
+    color: #009688;
+}
+
+a:hover, a:focus {
+    color: #4db6ac;
+}
+
+.btn-submit {
+    background-color: #00695c;
+    color: #e0f2f1;
+}
+
+.btn-submit:hover, .btn-submit:focus {
+    background-color: #00897b;
+    color: #e0f2f1;
+}
+
+.form-control {
+    width: 250px;
+    border-color: #00695c;
+}
+
+.form-control:focus {
+    border-color: #00897b;
+}
+
+.list-group-item {
+    border-color: #00695c;
+}
+
+.table-bordered td, .table-bordered th {
+    border-color: #00695c !important;
+}

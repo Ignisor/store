@@ -3,9 +3,9 @@ from django.db import models
 
 
 class Brand(models.Model):
-    '''
+    """
     Brand model
-    '''
+    """
     name = models.CharField(max_length=256, default='NoName')
     slug = models.SlugField()
 
@@ -14,9 +14,9 @@ class Brand(models.Model):
 
 
 class Category(models.Model):
-    '''
+    """
     Category model
-    '''
+    """
     name = models.CharField(max_length=256, default='NoName')
     slug = models.SlugField()
 

@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+
+    {% load staticfiles %}
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'static/shop.css' %}">
 </head>
 <body>
 <form action="{% url 'login' %}" method="post" accept-charset="utf-8">

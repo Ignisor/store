@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.contrib.auth.decorators import login_required
-from django.conf import settings
+from django.views.generic import TemplateView
 from django.contrib.auth.views import login, logout
 from .views import ProductCreateView, BrandCreateView, CategoryCreateView, \
     BrandsListView, ProductsListView, CategoriesListView, index, product_view, \
@@ -13,6 +13,8 @@ urlpatterns = [
     # index(home) page
     url(r'^$', login_required(index),
         name ='index'),
+    # header
+    url(r'^header.html', TemplateView.as_view(template_name='header.html')),
     # default django login page
     url(r'^accounts/login/$', login, kwargs={'template_name': 'login.html'},
         name='login'),

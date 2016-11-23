@@ -37,7 +37,7 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(_PATH, 'files', 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(_PATH, 'static'),
+    os.path.join(_PATH, 'files'),
 )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'products_control',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [
@@ -133,7 +134,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (css, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'

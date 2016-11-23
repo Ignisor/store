@@ -3,18 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Список поставщиков</title>
+
+    {% load staticfiles %}
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="script" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'static/shop.css' %}">
+    <link rel="stylesheet" href="{% static 'static/navbar.css' %}">
 </head>
 <body>
-<p><a href="/">На домашнюю</a></p>
-<br>
-<h><a href="/product_control/add_provider/">Добавить нового поставщика</a></h>
-<h2>Поставщики:</h2>
-<ul>
-{% for provider in object_list %}
-    <li><a href = '/providers/{{ provider.slug }}/'>{{ provider.name }}</a> (<a href="/providers/{{ provider.slug }}/update/">редактировать</a>/<a href="/providers/{{ provider.slug }}/delete/">удалить</a>)</li>
-{% empty %}
-    <li>Поставщиков нет.</li>
-{% endfor %}
-</ul>
+    <!--Header-->
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+    $(function(){
+      $("#header").load("/header.html");
+    });
+    </script>
+    <div id="header"></div>
+    <!--End of header-->
+
+    <div class="content">
+        <h><a href="/product_control/add_provider/">Добавить нового поставщика</a></h>
+
+        <h2>Поставщики:</h2>
+        <ul class="list-group">
+            {% for provider in object_list %}
+                <li class="list-group-item"><a href = '/providers/{{ provider.slug }}/'>{{ provider.name }}</a> (<a href="/providers/{{ provider.slug }}/update/">редактировать</a>/<a href="/providers/{{ provider.slug }}/delete/">удалить</a>)</li>
+            {% empty %}
+                <li class="list-group-item">Поставщиков нет.</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

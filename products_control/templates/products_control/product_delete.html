@@ -3,11 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Удаление продукта</title>
+
+    {% load staticfiles %}
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="script" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'static/shop.css' %}">
+    <link rel="stylesheet" href="{% static 'static/navbar.css' %}">
 </head>
 <body>
-<form action="" method="post">{% csrf_token %}
-    <p>Вы действительно хотите удалить "{{ object }}"?</p>
-    <input type="submit" value="Да" />
-</form>
+    <!--Header-->
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+    $(function(){
+      $("#header").load("/header.html");
+    });
+    </script>
+    <div id="header"></div>
+    <!--End of header-->
+
+    <div class="content">
+        <form action="" method="post">{% csrf_token %}
+            <p>Вы действительно хотите удалить "{{ object }}"?</p>
+            <button type="submit" class="btn btn-submit">Да</button>
+        </form>
+    </div>
 </body>
 </html>

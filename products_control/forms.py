@@ -3,6 +3,7 @@ from django import forms
 
 
 class ProductForm(forms.ModelForm):
+
     class Meta:
         model = Product
         fields = '__all__'
@@ -19,12 +20,18 @@ class ProductForm(forms.ModelForm):
 
 
 class BrandForm(forms.ModelForm):
+    name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    slug = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+
     class Meta:
         model = Brand
         fields = '__all__'
 
 
 class CategoryForm(forms.ModelForm):
+    name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    slug = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+
     class Meta:
         model = Category
         fields = '__all__'

@@ -3,18 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Категории</title>
+
+    {% load staticfiles %}
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="script" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'static/shop.css' %}">
+    <link rel="stylesheet" href="{% static 'static/navbar.css' %}">
 </head>
 <body>
-<p><a href="/">На домашнюю</a></p>
-<br>
-<h><a href="/product_control/add_category/">Добавить новую категорию</a></h>
-<h2>Категории:</h2>
-<ul>
-{% for category in object_list %}
-    <li><a href = '/products/category/{{ category.slug }}/'>{{ category.name }}</a> (<a href="/category/{{ category.slug }}/update/">редактировать</a>/<a href="/category/{{ category.slug }}/delete/">удалить</a>)</li>
-{% empty %}
-    <li>No categories yet.</li>
-{% endfor %}
-</ul>
+    <!--Header-->
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+    $(function(){
+      $("#header").load("/header.html");
+    });
+    </script>
+    <div id="header"></div>
+    <!--End of header-->
+
+    <div class="content">
+        <h><a href="/product_control/add_category/">Добавить новую категорию</a></h>
+        <h2>Категории:</h2>
+        <ul class="list-group">
+            {% for category in object_list %}
+                <li class="list-group-item"><a href = '/products/category/{{ category.slug }}/'>{{ category.name }}</a> (<a href="/category/{{ category.slug }}/update/">редактировать</a>/<a href="/category/{{ category.slug }}/delete/">удалить</a>)</li>
+            {% empty %}
+                <li class="list-group-item">No categories yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

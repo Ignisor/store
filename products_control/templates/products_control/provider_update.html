@@ -3,23 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Изменить поставщика</title>
+
+    {% load staticfiles %}
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="script" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'static/shop.css' %}">
+    <link rel="stylesheet" href="{% static 'static/navbar.css' %}">
 </head>
 <body>
-<form action="" method="post">
-{% csrf_token %}
-    <table>
-        <tr>
-            <td>Название :</td>
-            <td>{{ form.name }}</td>
-        </tr>
-        <tr>
-            <td>Короткое название :</td>
-            <td>{{ form.slug }}</td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Обновить" /></td>
-        </tr>
-    </table>
-</form>
+    <!--Header-->
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+    $(function(){
+      $("#header").load("/header.html");
+    });
+    </script>
+    <div id="header"></div>
+    <!--End of header-->
+
+    <div class="content">
+        <form action="" method="post">
+            {% csrf_token %}
+            {% load bootstrap %}
+            <div class="form-group">
+                <label class="control-label" for="brand">Имя:</label>
+                {{ form.name|bootstrap }}
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="slug">Короткое имя:</label>
+                {{ form.slug|bootstrap }}
+            </div>
+            <button type="submit" class="btn btn-submit">Создать</button>
+        </form>
+    </div>
 </body>
 </html>
