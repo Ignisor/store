@@ -30,24 +30,34 @@
 
 <div class="content">
     <h2>Новый заказ:</h2>
-    <div id="status-div"></div>
-    <form action="" method="post" id="post-form">
+    <form action="" method="post" id="post-form" class="form-inline">
         {% csrf_token %}
         {% load bootstrap %}
-        <div class="form-group">
-            <label class="control-label" for="provider">Поставщик:</label>
-            {{ form.provider|bootstrap }}
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="product">Штрихкод:</label>
-            {{ form.product|bootstrap }}
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="ordered_amount">Количество:</label>
-            {{ form.ordered_amount|bootstrap }}
-        </div>
-
-        <button type="submit" class="btn btn-submit">Добавить</button>
+        <table id="table-form">
+            <tr>
+                <td style="padding: 5px;">
+                    <div class="form-group">
+                        <label class="control-label" for="provider">Поставщик: </label>
+                        {{ form.provider|bootstrap }}
+                    </div>
+                </td>
+                <td style="padding: 5px;">
+                    <div class="form-group">
+                        <label class="control-label" for="product">Штрихкод: </label>
+                        {{ form.product|bootstrap }}
+                    </div>
+                </td>
+                <td style="padding: 5px;">
+                    <div class="form-group">
+                        <label class="control-label" for="ordered_amount">Количество: </label>
+                        {{ form.ordered_amount|bootstrap }}
+                    </div>
+                </td>
+                <td style="padding: 5px;">
+                    <button type="submit" class="btn btn-submit">Добавить</button>
+                </td>
+            </tr>
+        </table>
     </form>
 </div>
 
@@ -67,14 +77,20 @@
                 type: frm.attr('method'),
                 url: frm.attr('action'),
                 data: frm.serialize(),
-            success : function(data) {
-                    $("#table").prepend("<tr><td>Поставщик: </td>" +
-                        "<td>" + providers[values['provider']] + "</td>" +
-                        "<td>Штрихкод: </td>" +
-                        "<td>" +  values['product']  + "</td>" +
-                        "<td>Количество: </td>" +
-                        "<td>" +  values['ordered_amount']  + "</td></tr>");
-                },
+                success : function(data) {
+                        $("#table-form").append("<tr><td style=\"padding: 5px;\"><div class=\"form-group\">" +
+                                                "<label class=\"control-label\">Поставщик: </label>" +
+                                                " " + providers[values["provider"]] +
+                                                "</div></td>" +
+                                                "<td style=\"padding: 5px;\"><div class=\"form-group\">" +
+                                                "<label class=\"control-label\">Штрихкод: </label>" +
+                                                " " + values["product"] +
+                                                "</div></td>" +
+                                                "<td style=\"padding: 5px;\"><div class=\"form-group\">" +
+                                                "<label class=\"control-label\">Количество: </label>" +
+                                                " " + values["ordered_amount"] +
+                                                "</div></td></tr>");
+                    },
             error : function(data) {
                     $("#status-div").html("<p style='color: red'>Что-то не так<p>");
                 }

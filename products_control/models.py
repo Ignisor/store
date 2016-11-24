@@ -9,7 +9,7 @@ class Brand(models.Model):
     name = models.CharField(max_length=256, default='NoName')
     slug = models.SlugField()
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
 
@@ -20,7 +20,7 @@ class Category(models.Model):
     name = models.CharField(max_length=256, default='NoName')
     slug = models.SlugField()
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
 
@@ -35,7 +35,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products_images/', null=True, blank=True)
     price = models.FloatField(default=0.00)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
 
@@ -46,7 +46,7 @@ class Amount(models.Model):
     product = models.OneToOneField(Product, related_name='amount')
     num = models.IntegerField()
 
-    def __str__(self):
+    def __unicode__(self):
         return self.product.name + ": " + str(self.num)
 
     # def save(self, force_insert=False, force_update=False, using=None,
