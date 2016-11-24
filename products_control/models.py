@@ -86,7 +86,7 @@ class Order(models.Model):
     ordered_amount = models.IntegerField()
     delivered_amount = models.IntegerField(blank=True, null=True)
     accepted = models.BooleanField(default=False)
-    deliver_date = models.DateTimeField(blank=True, null=True)
+    deliver_date = models.DateField(blank=True, null=True)
 
     def __unicode__(self):
         return self.provider.name + ': ' + self.product.name + '(' + str(self.ordered_amount) + ')'
