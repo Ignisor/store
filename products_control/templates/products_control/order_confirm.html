@@ -43,6 +43,14 @@
             {{ object.ordered_amount }}
         </div>
         <div class="form-group">
+            <label class="control-label" for="#">Дата создания:</label><br>
+            {{ object.creation_date }}
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="delivered_counter">Счетчик по штрихкоду:</label>
+            <input class="form-control" id="id_delivered_counter" name="delivered_counter" type="number">
+        </div>
+        <div class="form-group">
             <label class="control-label" for="delivered_amount">Доставленное кол-во:</label>
             {{ form.delivered_amount|bootstrap }}
         </div>
@@ -67,6 +75,20 @@
       yearRange: "2000:2040",
     });
   });
+</script>
+<script>
+    $(document).keypress(function(e) {
+        if(e.which == 13) {
+            value = $("#id_delivered_counter").val()
+            if (value == {{ object.product.barcode }}) {
+                $("#id_delivered_amount").val( function(i, oldval) {
+                    return ++oldval;
+                });
+            }
+            $("#id_delivered_counter").val('')
+            return false;
+        }
+    });
 </script>
 </body>
 </html>

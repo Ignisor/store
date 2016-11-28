@@ -41,7 +41,7 @@
                 <tr>
                     <td class="product_name"><a href="/product/{{ product.barcode }}/">{{ product.name }}</a></td>
                     <td class="product_id">{{ product.barcode }}</td>
-                    <td>{{ product.price }}</td>
+                    <td>{{ product.price }}$ / {{ product.price_in_uah }}&#8372;</td>
                     <td>{{ product.amount.num }}</td>
                 </tr>
             {% empty %}

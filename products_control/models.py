@@ -1,5 +1,11 @@
 from __future__ import unicode_literals
 from django.db import models
+from django import template
+from datetime import date
+import requests
+import json
+
+register = template.Library()
 
 
 class Brand(models.Model):
@@ -37,6 +43,57 @@ class Product(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    @property
+    def price_in_uah(obj):
+        # if no exchange rate object exist in database - create it
+        if len(ExchangeRate.objects.all()) < 1:
+            ex_rate = ExchangeRate(buying = 0, selling = 0, last_update = date.today())
+            ex_rate.save()
+            ex_rate.update_rate()
+
+        ex_rate = ExchangeRate.objects.all()[0]
+
+        return obj.price * ex_rate.get_buying()
+
+
+class ExchangeRate(models.Model):
+    """
+    Model for storing rate of exchange
+    """
+    buying = models.FloatField()
+    selling = models.FloatField()
+    last_update = models.DateField()
+
+    def get_buying(self):
+        # check is rate was updated today
+        if date.today() > self.last_update:
+            self.update_rate()
+        return self.buying
+
+    def get_selling(self):
+        # check is rate was updated today
+        if date.today() > self.last_update:
+            self.update_rate()
+        return self.selling
+
+    def update_rate(self):
+        # get exchange rate from "obmenka.kharkov.ua"
+        req = requests.get('https://obmenka.kharkov.ua/rate/list')
+
+        if req.status_code == 200:
+            j = json.loads(req.content)
+
+            self.selling = j[0]['amountRetailTo']
+            self.buying = j[0]['amountRetailFrom']
+            self.last_update = date.today()
+
+            self.save()
+
+            return True
+
+        else: return False
+
 
 
 class Amount(models.Model):
@@ -86,6 +143,7 @@ class Order(models.Model):
     ordered_amount = models.IntegerField()
     delivered_amount = models.IntegerField(blank=True, null=True)
     accepted = models.BooleanField(default=False)
+    creation_date = models.DateField(auto_now_add=True)
     deliver_date = models.DateField(blank=True, null=True)
 
     def __unicode__(self):
