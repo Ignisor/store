@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Несошедшиеся заказы</title>
+
+    {% load staticfiles %}
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="script" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'shop.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+</head>
+<body>
+    <!--Header-->
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+    $(function(){
+      $("#header").load("/header.html");
+    });
+    </script>
+    <div id="header"></div>
+    <!--End of header-->
+
+    <div class="content">
+        <table class="table table-bordered">
+            <caption><h2>Несошедшиеся заказы:</h2></caption>
+            <tr>
+                <th>Поставщик</th>
+                <th>Продукт</th>
+                <th>Заказанное кол-во</th>
+                <th>Доставленное кол-во</th>
+                <th>Дата</th>
+            </tr>
+            {% for order in object_list %}
+            <tr>
+                <td><a href="/providers/{{ order.provider.slug }}/">{{ order.provider.name }}</a></td>
+                <td><a href="/product/{{ order.product.barcode }}/">{{ order.product.name }}</a></td>
+                <td>{{ order.ordered_amount }}</td>
+                <td>{{ order.delivered_amount }}</td>
+                <td>{{ order.deliver_date }}</td>
+            </tr>
+            {% empty %}
+            Всё сходится!
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

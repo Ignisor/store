@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Подтверждение заказа</title>
+
+    {% load staticfiles %}
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="script" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'shop.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+</head>
+<body>
+<!--Header-->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+      $("#header").load("/header.html");
+    });
+
+</script>
+<div id="header"></div>
+<!--End of header-->
+
+<div class="content">
+    <form action="" method="post">
+        {% csrf_token %}
+        {% load bootstrap %}
+        <div class="form-group">
+            <label class="control-label" for="#">Поставщик:</label><br>
+            <a href="/providers/{{ object.provider.slug }}/">{{ object.provider.name }}</a>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="#">Продукт:</label><br>
+            <a href="/product/{{ object.product.barcode }}/">{{ object.product.name }}</a>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="#">Заказанное кол-во:</label><br>
+            {{ object.ordered_amount }}
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="delivered_amount">Доставленное кол-во:</label>
+            {{ form.delivered_amount|bootstrap }}
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="deliver_date">Дата доставки:</label>
+            {{ form.deliver_date|bootstrap }}
+        </div>
+        <button type="submit" class="btn btn-submit">Подтвердить</button>
+    </form>
+</div>
+
+<!--jQuery UI for datepicker-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+<script>
+  $(function() {
+    $("#id_deliver_date").datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "2000:2040",
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить заказ</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    {% load staticfiles %}
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="script" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'shop.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+</head>
+<body>
+<!--Header-->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+      $("#header").load("/header.html");
+    });
+
+</script>
+<div id="header"></div>
+<!--End of header-->
+
+<div class="content">
+    <h2>Новый заказ:</h2>
+    <form action="" method="post" id="post-form" class="form-inline">
+        {% csrf_token %}
+        {% load bootstrap %}
+        <table id="table-form">
+            <tr>
+                <td style="padding: 5px;">
+                    <div class="form-group">
+                        <label class="control-label" for="provider">Поставщик: </label>
+                        {{ form.provider|bootstrap }}
+                    </div>
+                </td>
+                <td style="padding: 5px;">
+                    <div class="form-group">
+                        <label class="control-label" for="product">Штрихкод: </label>
+                        {{ form.product|bootstrap }}
+                    </div>
+                </td>
+                <td style="padding: 5px;">
+                    <div class="form-group">
+                        <label class="control-label" for="ordered_amount">Количество: </label>
+                        {{ form.ordered_amount|bootstrap }}
+                    </div>
+                </td>
+                <td style="padding: 5px;">
+                    <button type="submit" class="btn btn-submit">Добавить</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script>
+    var frm = $('#post-form');
+        frm.submit(function() {
+            var $inputs = $('#post-form :input');
+
+            var values = {};
+            $inputs.each(function() {
+                values[this.name] = $(this).val();
+            });
+
+            var providers = {{ providers|safe }}
+
+            $.ajax({
+                type: frm.attr('method'),
+                url: frm.attr('action'),
+                data: frm.serialize(),
+                success : function(data) {
+                        $("#table-form").append("<tr><td style=\"padding: 5px;\"><div class=\"form-group\">" +
+                                                "<label class=\"control-label\">Поставщик: </label>" +
+                                                " " + providers[values["provider"]] +
+                                                "</div></td>" +
+                                                "<td style=\"padding: 5px;\"><div class=\"form-group\">" +
+                                                "<label class=\"control-label\">Штрихкод: </label>" +
+                                                " " + values["product"] +
+                                                "</div></td>" +
+                                                "<td style=\"padding: 5px;\"><div class=\"form-group\">" +
+                                                "<label class=\"control-label\">Количество: </label>" +
+                                                " " + values["ordered_amount"] +
+                                                "</div></td></tr>");
+                    },
+            error : function(data) {
+                    $("#status-div").html("<p style='color: red'>Что-то не так<p>");
+                }
+            });
+            return false;
+        });
+
+</script>
+</body>
+</html>

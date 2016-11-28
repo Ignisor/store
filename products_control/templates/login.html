@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    {% load staticfiles %}
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'shop.css' %}">
+</head>
+<body>
+<div class="head">
+    <h1><b>Учёт товаров</b></h1>
+</div>
+
+<br>
+<div class="content">
+    <form action="{% url 'login' %}" method="post" accept-charset="utf-8">
+        {% csrf_token %}
+        {% load bootstrap %}
+        {% for field in form %}
+         <label class="control-label">{{ field.label }}</label>
+            {% if field.errors %}
+            {{ field.errors }}
+            {% endif %}
+            {{ field|bootstrap }}</p>
+        {% endfor %}
+        <input type="hidden" name="next" value="{{ next }}"/>
+        <button type="submit" class="btn btn-submit">Log In</button>
+    </form>
+</div>
+</body>
+</html>

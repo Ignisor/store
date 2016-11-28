@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список заказов</title>
+
+    {% load staticfiles %}
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="script" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'shop.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+</head>
+<body>
+    <!--Header-->
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+    $(function(){
+      $("#header").load("/header.html");
+    });
+    </script>
+    <div id="header"></div>
+    <!--End of header-->
+
+    <div class="content">
+        <table class="table table-bordered">
+           <caption>Заказы:</caption>
+           <tr>
+               <th>Подтверждён</th>
+               <th>Поставщик</th>
+               <th>Продукт</th>
+               <th>Заказанное кол-во</th>
+               <th>Доставленное кол-во</th>
+               <th>Дата</th>
+               <th>Удаление</th>
+           </tr>
+
+            {% for order in object_list %}
+                {% if order.accepted %}
+                    {% if order.ordered_amount != order.delivered_amount %}
+                        <tr class="danger">
+                    {% else %}
+                        <tr>
+                    {% endif %}
+                {% else %}
+                    <tr>
+                {% endif %}
+                    <td>
+                        {% if order.accepted %} Да {% else %}
+                        <form action="/confirm_order/{{ order.id }}">
+                            <button type="submit" class="btn btn-submit" style="height:100%; width:100%;">Подтвердить</button>
+                        </form>
+                        {% endif %}
+                    </td>
+                    <td><a href="/providers/{{ object.provider.slug }}/">{{ order.provider.name }}</a></td>
+                    <td><a href="/product/{{ order.product.barcode }}/">{{ order.product.name }}</a></td>
+                    <td>{{ order.ordered_amount }}</td>
+                    <td>{{ order.delivered_amount }}</td>
+                    <td>{{ order.deliver_date }}</td>
+                    <td>
+                        {% if not order.accepted %}
+                        <form action="/order/{{ order.pk }}/delete/">
+                            <button type="submit" class="btn btn-submit" style="height:100%; width:100%;">Удалить</button>
+                        </form>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% empty %}
+                Заказов нет.
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
