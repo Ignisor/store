@@ -33,7 +33,7 @@
             <br>
             <p><b>Количество: {{ product.amount.num }}</b></p>
             <p>Штрихкод: {{ product.barcode }}</p>
-            <p>Стоимость: {{ product.price }}</p>
+            <p>Стоимость: {{ product.price }}$ / {{ product.price_in_uah }}&#8372;</p>
             <p>
             <form action="update/">
                 <button type="submit" class="btn btn-submit" style="height:100%; width:100%;">Изменить</button>

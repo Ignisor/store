@@ -32,9 +32,10 @@
                <th>Подтверждён</th>
                <th>Поставщик</th>
                <th>Продукт</th>
+               <th>Дата создания</th>
                <th>Заказанное кол-во</th>
                <th>Доставленное кол-во</th>
-               <th>Дата</th>
+               <th>Дата подтверждения</th>
                <th>Удаление</th>
            </tr>
 
@@ -55,8 +56,9 @@
                         </form>
                         {% endif %}
                     </td>
-                    <td><a href="/providers/{{ object.provider.slug }}/">{{ order.provider.name }}</a></td>
+                    <td>{{ order.provider.name }}</td>
                     <td><a href="/product/{{ order.product.barcode }}/">{{ order.product.name }}</a></td>
+                    <td>{{ order.creation_date }}</td>
                     <td>{{ order.ordered_amount }}</td>
                     <td>{{ order.delivered_amount }}</td>
                     <td>{{ order.deliver_date }}</td>
