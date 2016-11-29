@@ -1,7 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.views.generic.list import ListView
 from annoying.functions import get_object_or_None
+from openpyxl import Workbook
+import StringIO
+import os
 
 from .forms import ProductForm, BrandForm, CategoryForm, IncomeForm, OutcomeForm, OrderForm
 from .models import Brand, Product, Category, Log, Provider, Order
@@ -229,3 +232,23 @@ class OrderFormView(FormView):
         context['providers'] = providers_dict
 
         return context
+
+
+def excel_export_income(request):
+
+    excel = Workbook()
+    sheet = excel.active
+    sheet['A1'] = 42
+    excel.save('income.xlsx')
+
+    file = open('income.xlsx', 'rb')
+
+    output = StringIO.StringIO(file.read())
+
+    response = HttpResponse(output.getvalue())
+    response['Content-Type'] = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    response['Content-Disposition'] = 'attachment; filename="income.xlsx"'
+
+    file.close()
+
+    return response

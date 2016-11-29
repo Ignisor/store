@@ -7,7 +7,8 @@ from .views import ProductCreateView, BrandCreateView, CategoryCreateView, \
     ProductUpdateView, BrandUpdateView, CategoryUpdateView, ProductDeleteView, \
     CategoryDeleteView, BrandDeleteView, IncomeFormView, OutcomeFormView, LogListView, \
     ProviderCreateView, ProviderListView, ProviderUpdateView, ProviderDeleteView, \
-    OrderFormView, OrderListView, OrderConfirmView, BadOrderListView, OrderDeleteView
+    OrderFormView, OrderListView, OrderConfirmView, BadOrderListView, OrderDeleteView, \
+    excel_export_income
 
 urlpatterns = [
     # index(home) page
@@ -102,4 +103,7 @@ urlpatterns = [
     # remove some amount from product
     url(r'^outcome/$', login_required(OutcomeFormView.as_view()),
         name='outcome'),
+    # export income to excel file
+    url(r'^export/income/$', login_required(excel_export_income),
+        name='export_income'),
 ]

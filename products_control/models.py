@@ -106,18 +106,6 @@ class Amount(models.Model):
     def __unicode__(self):
         return self.product.name + ": " + str(self.num)
 
-    # def save(self, force_insert=False, force_update=False, using=None,
-    #          update_fields=None):
-    #     old_num = self.num
-    #
-    #     super(Amount, self).save(force_insert=False, force_update=False, using=None,
-    #          update_fields=None)
-    #
-    #     new_num = self.num()
-    #     log = Log(product=self.product,
-    #               d_amount=old_num - new_num,
-    #               time = )
-
 
 class Log(models.Model):
     """
