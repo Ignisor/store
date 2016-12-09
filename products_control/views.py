@@ -1,10 +1,14 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+import StringIO
+
 from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.views.generic.list import ListView
 from annoying.functions import get_object_or_None
+
 from openpyxl import Workbook
-import StringIO
-import os
+from openpyxl.styles import Font
 
 from .forms import ProductForm, BrandForm, CategoryForm, IncomeForm, OutcomeForm, OrderForm
 from .models import Brand, Product, Category, Log, Provider, Order
@@ -234,20 +238,87 @@ class OrderFormView(FormView):
         return context
 
 
-def excel_export_income(request):
+def excel_export_products(request):
 
     excel = Workbook()
     sheet = excel.active
-    sheet['A1'] = 42
-    excel.save('income.xlsx')
 
-    file = open('income.xlsx', 'rb')
+    # names of columns (first row)
+    sheet['A1'] = u'Производитель'
+    sheet['B1'] = u'Штрихкод'
+    sheet['C1'] = u'Номенклатура'
+    sheet['D1'] = u'Количество'
+
+    sheet['A1'].font = Font(bold=True)
+    sheet['B1'].font = Font(bold=True)
+    sheet['C1'].font = Font(bold=True)
+    sheet['D1'].font = Font(bold=True)
+
+    sheet.column_dimensions['A'].width = 25
+    sheet.column_dimensions['B'].width = 20
+    sheet.column_dimensions['C'].width = 40
+    sheet.column_dimensions['D'].width = 15
+
+    products = Product.objects.all()
+
+    if products.exists():
+        for i in range(0, len(products)):
+            sheet['A{}'.format(i+2)] = products[i].brand.name
+            sheet['B{}'.format(i+2)] = products[i].barcode
+            sheet['C{}'.format(i+2)] = products[i].name
+            sheet['D{}'.format(i+2)] = products[i].amount.num
+
+    excel.save('products.xlsx')
+
+    file = open('products.xlsx', 'rb')
 
     output = StringIO.StringIO(file.read())
 
     response = HttpResponse(output.getvalue())
     response['Content-Type'] = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    response['Content-Disposition'] = 'attachment; filename="income.xlsx"'
+    response['Content-Disposition'] = 'attachment; filename="products.xlsx"'
+
+    file.close()
+
+    return response
+
+
+def excel_export_orders(request, provider):
+    excel = Workbook()
+    sheet = excel.active
+
+    # names of columns (first row)
+    sheet['A1'] = u'Штрихкод'
+    sheet['B1'] = u'Номенклатура'
+    sheet['C1'] = u'Количество'
+
+    sheet['A1'].font = Font(bold=True)
+    sheet['B1'].font = Font(bold=True)
+    sheet['C1'].font = Font(bold=True)
+
+    sheet.column_dimensions['A'].width = 20
+    sheet.column_dimensions['B'].width = 40
+    sheet.column_dimensions['C'].width = 15
+
+    orders = Provider.objects.get(slug=provider).orders.filter(accepted=False)
+
+    if orders.exists():
+        for i in range(0, len(orders)):
+            order = orders[i]
+            product = orders[i].product
+            sheet['A{}'.format(i + 2)] = product.barcode
+            sheet['B{}'.format(i + 2)] = product.name
+            sheet['C{}'.format(i + 2)] = order.ordered_amount
+
+    excel.save('order.xlsx')
+
+    file = open('order.xlsx', 'rb')
+
+    output = StringIO.StringIO(file.read())
+
+    response = HttpResponse(output.getvalue())
+    response['Content-Type'] = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    response['Content-Disposition'] = 'attachment; filename="order.xlsx"'
 
     file.close()
 

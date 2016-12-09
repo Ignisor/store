@@ -1,0 +1,9 @@
+Django
+django-annoying
+django-bootstrap-form
+et-xmlfile
+jdcal
+openpyxl
+Pillow
+pkg-resources
+requests
